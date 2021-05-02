@@ -1,7 +1,6 @@
 # Digital Oscillators in Pure Data via different synthesis methods
 
-## table-lookup oscillators
-### 0.00 - 0.99
+## table-lookup oscillators: 0.00 - 0.99
 Table-lookup synthesis (or Wavetable-lookup synthesis) (Roads 1996) 
 is a class of sound synthesis methods using the waveform tables by table-lookup, 
 called "table-lookup oscillator" technique. 
