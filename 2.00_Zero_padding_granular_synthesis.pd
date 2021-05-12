@@ -1,0 +1,59 @@
+#N canvas 206 52 476 447 10;
+#X obj 72 77 table waveform;
+#X obj 190 161 loadbang;
+#X obj 107 379 tabread4~ waveform;
+#X obj 190 223 phasor~;
+#X obj 108 354 *~ 512;
+#X obj 190 205 nbx 5 14 -1e+037 1e+037 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 440 256;
+#X msg 190 183 440;
+#X obj 166 411 dac~ 1 2;
+#X msg 44 160 \; waveform normalize 1;
+#X obj 11 77 loadbang;
+#X obj 44 137 delay 2;
+#X msg 54 101 \; waveform sinesum 512 16 15 14 13 12 11 10 9 8 7 6
+5 4 3 2 1;
+#X msg 52 231 512;
+#X obj 17 309 *;
+#X floatatom 11 204 5 0 0 0 - - -;
+#X msg 18 352 resize \$1;
+#X floatatom 23 329 5 0 0 0 - - -;
+#X obj 28 378 s waveform;
+#X text 11 1 Zero Padding Granulation;
+#X text 11 25 a variable number resize te array dimension \, in this
+way we create a zero padding resizing the window and reducing our grain
+dimension in proportion;
+#X text 247 129 set the grain waveform;
+#X text 218 185 frequency;
+#X msg 11 161 100;
+#X text 156 352 phasor read the table: from 0 to N samples;
+#X obj 117 252 expr~ $v1<0.5;
+#X obj 120 277 edge~;
+#X obj 120 299 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 11 231 / 100;
+#X text 166 274 send a trigger when phasor phase restart (from 0);
+#X connect 1 0 6 0;
+#X connect 2 0 7 0;
+#X connect 2 0 7 1;
+#X connect 3 0 4 0;
+#X connect 3 0 24 0;
+#X connect 4 0 2 0;
+#X connect 5 0 3 0;
+#X connect 6 0 5 0;
+#X connect 9 0 11 0;
+#X connect 9 0 10 0;
+#X connect 9 0 22 0;
+#X connect 9 0 12 0;
+#X connect 10 0 8 0;
+#X connect 12 0 13 0;
+#X connect 13 0 16 0;
+#X connect 14 0 27 0;
+#X connect 15 0 17 0;
+#X connect 16 0 15 0;
+#X connect 16 0 4 1;
+#X connect 22 0 14 0;
+#X connect 24 0 25 0;
+#X connect 25 0 26 0;
+#X connect 25 0 13 0;
+#X connect 27 0 13 1;
