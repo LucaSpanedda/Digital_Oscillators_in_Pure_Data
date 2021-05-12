@@ -1,0 +1,29 @@
+#N canvas 202 65 504 328 10;
+#X obj -36 -46 table waveform;
+#X msg -37 -89 \; waveform sinesum 512 1;
+#X text -39 -251 The semicolon indicates that the message is an internal
+message \, and "waveform" indicates that we are sending information
+to the array named "waveform". The word "sinesum" tells the array that
+we will be sending it a series of harmonics to graph. The number "512"
+tells the array that we want to graph those harmonics out on 512 units
+on the X range (samples) \, so the array will be resized from 100 (its
+default size) to 512 Finally \, the number "1" indicates that we want
+to write a single sine wave with a peak amplitude of 1 to the array.
+;
+#X obj -37 -114 loadbang;
+#X text 193 -52 phasor read the table: from 0 to 512 samples;
+#X obj 135 0 tabread4~ waveform;
+#X obj 136 -47 phasor~;
+#X obj 136 -25 *~ 512;
+#X obj 136 -68 nbx 5 14 -1e+037 1e+037 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 440 256;
+#X msg 136 -90 440;
+#X obj 194 32 dac~ 1 2;
+#X connect 3 0 1 0;
+#X connect 3 0 9 0;
+#X connect 5 0 10 0;
+#X connect 5 0 10 1;
+#X connect 6 0 7 0;
+#X connect 7 0 5 0;
+#X connect 8 0 6 0;
+#X connect 9 0 8 0;

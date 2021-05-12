@@ -1,0 +1,35 @@
+#N canvas 66 16 513 422 10;
+#X obj 68 168 table waveform;
+#X obj 180 251 loadbang;
+#X text 234 311 phasor read the table: from 0 to 512 samples;
+#X obj 179 360 tabread4~ waveform;
+#X obj 180 313 phasor~;
+#X obj 180 335 *~ 512;
+#X obj 180 295 nbx 5 14 -1e+037 1e+037 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 440 256;
+#X msg 180 273 440;
+#X obj 238 392 dac~ 1 2;
+#X msg 7 266 \; waveform normalize 1;
+#X obj 7 168 loadbang;
+#X obj 7 242 delay 2;
+#X text 7 3 Square Wave;
+#X text 9 26 A square wave takes a few more added harmonics to get
+close to its ideal mathematical shape. This waveform is created also
+using only the odd-numbered harmonics (1 \, 3 \, 5 \, 9...) \, and
+zero is also used for the amplitude of the even harmonics (2 \, 4 \,
+6 \, 8...). Then 1 is divided by the number of the harmonic to get
+its amplitude (i.e. 1/h). As illustrated below \, a square wave made
+up of only four harmonics isn't very square \, but when more harmonics
+are added its shape becomes very clear.;
+#X msg 20 191 \; waveform sinesum 512 1 0 0.333333 0 0.2 0 0.142857
+0 0.111111 0 0.90909 0 0.076923;
+#X connect 1 0 7 0;
+#X connect 3 0 8 0;
+#X connect 3 0 8 1;
+#X connect 4 0 5 0;
+#X connect 5 0 3 0;
+#X connect 6 0 4 0;
+#X connect 7 0 6 0;
+#X connect 10 0 14 0;
+#X connect 10 0 11 0;
+#X connect 11 0 9 0;
