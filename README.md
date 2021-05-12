@@ -24,3 +24,5 @@ Zero padding is a simple concept;
 it simply refers to adding zeros to end of a time-domain signal to increase its length. 
 The example 1 MHz and 1.05 MHz real-valued sinusoid waveforms we will be using throughout 
 this article is shown in the following plot: The time-domain length of this waveform is 1000 samples.
+
+## wavetable oscillators [3.00 - 3.99]
